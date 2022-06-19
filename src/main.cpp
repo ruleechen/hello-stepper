@@ -11,21 +11,21 @@ void setup() {
   pinMode(D5, OUTPUT);
   pinMode(D6, OUTPUT);
 
-	myStepper.setMaxSpeed(512);
-	myStepper.setAcceleration(32);
-	myStepper.setSpeed(256);
-	myStepper.moveTo(1024);
+  myStepper.setMaxSpeed(512);
+  myStepper.setAcceleration(32);
+  myStepper.setSpeed(256);
+  myStepper.moveTo(1024);
 
   Serial.println("setup complete");
 }
 
 void loop() {
-	// Change direction once the motor reaches target position
-	if (myStepper.distanceToGo() == 0) {
-		myStepper.moveTo(-myStepper.currentPosition());
+  // Change direction once the motor reaches target position
+  if (myStepper.distanceToGo() == 0) {
+    myStepper.moveTo(-myStepper.currentPosition());
     Serial.println("turn back");
   }
 
-	// Move the motor one step
-	myStepper.run();
+  // Move the motor one step
+  myStepper.run();
 }
